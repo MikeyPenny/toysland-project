@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.row {
+    justify-content: space-around;
+    background-color: #007bff;
+}
+
+.navbar {
+    width: 95%;
+    height: 10vh;
+}
+
+.navbar-nav {
+    width: 60%;
+    justify-content: space-evenly;
+    
+}
+
+.navbar-brand {
+    font-size: 1.2em;
+}
+
+.nav-container {
+    height: 10vh;
+    font-size: 1.5em;
+}
+
+.log-items {
+    display: flex;
+    justify-content: flex-end;
+    width: 50%;
+}
+
+.log-items li {
+    margin-left: 2em;
+}
+
+.mt-form {
+    margin-top: 5vh;
+}
