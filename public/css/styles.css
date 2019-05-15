@@ -5,7 +5,7 @@ body {
 
 .row {
     justify-content: space-around;
-    background-color: #007bff;
+    
 }
 
 .navbar {
@@ -14,7 +14,7 @@ body {
 }
 
 .navbar-nav {
-    width: 60%;
+    width: 45%;
     justify-content: space-evenly;
     
 }
@@ -26,6 +26,7 @@ body {
 .nav-container {
     height: 10vh;
     font-size: 1.5em;
+    background-color: #007bff;
 }
 
 .log-items {
@@ -40,4 +41,12 @@ body {
 
 .mt-form {
     margin-top: 5vh;
+}
+
+#btn-save {
+    margin-top: 20px;
+}
+
+.card img {
+    height: 35vh;
 }

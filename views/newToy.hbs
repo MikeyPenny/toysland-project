@@ -1,1 +1,26 @@
-<h1>New Toy works!</h1>
+<div class="container mt-form">
+    <form action="/newToy" method="post">
+        <div class="form-group">
+            <label for="prodname">Product name:</label>
+            <input type="text" class="form-control form-control-lg" id="prodname" name="prodname" placeholder="Product name">
+        </div>
+        <div class="form-group">
+            <label for="units">Units:</label>
+            <input type="number" class="form-control form-control-lg" id="units" name="units" placeholder="Units">
+        </div>
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea class="form-control form-control-lg" id="desc" name="description" rows="5" ></textarea>
+        </div>
+        <div class="form-group">
+            <label for="picture">Image:</label>
+            <input type="text" class="form-control form-control-lg" id="picture" name="picture" placeholder="Picture">
+        </div>
+        {{!-- <div class="custom-file">
+            <input type="file" name="filesrc" class="custom-file-input" id="fileUpload" lang="en">
+            <label class="custom-file-label" for="fileUpload">Choose file</label>
+        </div> --}}
+        <button type="submit" id="btn-save" class="btn btn-primary">Save</button>
+    </form>
+</div>
+
