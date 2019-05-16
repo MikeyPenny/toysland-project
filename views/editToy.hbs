@@ -1,0 +1,31 @@
+<div class="container mt-form">
+    <form action="/updateToy" method="post">
+        <input type="hidden" name="id" value="{{toy._id}}" >
+        <div class="form-group">
+            <label for="prodname">Product name:</label>
+            <input type="text" class="form-control form-control-lg" id="prodname" name="prodname" value="{{toy.prodname}}" placeholder="Product name">
+        </div>
+        <div class="form-group">
+            <label for="prodprice">Price:</label>
+            <input type="text" class="form-control form-control-lg" id="prodprice" name="price" value="{{toy.price}}" placeholder="Product price €">
+        </div>
+        <div class="form-group">
+            <label for="units">Units:</label>
+            <input type="number" class="form-control form-control-lg" id="units" name="units" value="{{toy.units}}" placeholder="Units">
+        </div>
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea class="form-control form-control-lg" id="desc" name="description" value="{{toy.description}}" rows="5" ></textarea>
+        </div>
+        <div class="form-group">
+            <label for="picture">Image:</label>
+            <input type="text" class="form-control form-control-lg" id="picture" name="picture" value="{{toy.picture}}" placeholder="Picture">
+        </div>
+        <input type="hidden" name="owner" value="{{toy.owner}}" >
+        {{!-- <div class="custom-file">
+            <input type="file" name="filesrc" class="custom-file-input" id="fileUpload" lang="en">
+            <label class="custom-file-label" for="fileUpload">Choose file</label>
+        </div> --}}
+        <button type="submit" id="btn-save" class="btn btn-primary">Save</button>
+    </form>
+</div>

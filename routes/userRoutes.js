@@ -3,8 +3,21 @@ const app = express();
 const User = require('../models/user');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 
 const saltRounds = 10;
+
+app.use(session({
+    secret: 'cookie starts with c',
+    resave: true,
+    saveUninitialized: true,
+    cookie: {maxAge: 365 * 24 * 60 * 60 * 1000},
+    store: new MongoStore({
+        mongooseConnection: mongoose.connection,
+        ttl: 24 * 60 * 60
+    })
+}));
 
 app.get('/register', (req, res) => {
     res.render('register');
@@ -42,7 +55,7 @@ app.post('/register', (req, res) => {
 
 });
 
-app.get('/login', (req, res) => {
+app.get('/login', atachUserInfo, (req, res) => {
     res.render('login');
 });
 
@@ -74,5 +87,12 @@ app.get('/logout', (req, res) => {
         else res.redirect('/login');
     });
 });
+
+
+
+function atachUserInfo(req, res, next) {
+    res.locals.currentUser = req.session.currentUser;
+    next();
+}
 
 module.exports = app;
