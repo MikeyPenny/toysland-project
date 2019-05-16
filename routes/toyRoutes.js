@@ -99,14 +99,26 @@ app.get('/myToys', atachUserInfo, authenticateSession, (req, res) => {
 
 });
 
+app.get('/updateToy/:id', atachUserInfo, authenticateSession, (req, res) => {
+
+    Toy.findById(req.params.id)
+    .then(result => {
+        res.render('editToy', {toy: result});
+    })
+    .catch(err => {
+        res.send(err);
+    });
+
+});
+
 app.post('/updateToy', atachUserInfo, authenticateSession, (req, res) => {
 
     let updateValues = {prodname, units, description, price, picture, owner} = req.body;
 
-    let objectId = req.body.ObjectId(req.body.id);
+    let objectId = mongoose.Types.ObjectId(req.body.id);
 
     Toy.updateOne({_id: objectId}, updateValues, (err) => {
-        if (err) res.status(500).send('THere´s an error')
+        if (err) res.status(500).send('There´s an error')
         else res.redirect('/');
     });
 
