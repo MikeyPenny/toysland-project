@@ -39,8 +39,12 @@ body {
     margin-left: 2em;
 }
 
-.mt-form {
+.mt-main {
     margin-top: 5vh;
+}
+
+.mt-form {
+    margin-top: 15vh;
 }
 
 #btn-save {
@@ -49,4 +53,36 @@ body {
 
 .card img {
     height: 35vh;
+}
+
+.media {
+    align-items:stretch;
+    height: 50vh;
+    
+}
+
+.media img {
+    width: 40%;
+}
+
+.media h5 {
+    font-size: 2.5em;
+}
+
+.media p {
+    font-size: 1.5em;
+    margin-top: 30%;
+}
+
+.media-desc-content {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.star-price-qty {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
 }

@@ -1,16 +1,28 @@
 <div class="container mt-form">
-    <div class="card mb-3" style="max-width: 540px;">
-        <div class="row no-gutters">
-            <div class="col-md-4">
-                <img src="{{toy.picture}}" class="card-img" alt="...">
+    <div class="media">
+        <img src="{{toy.picture}}" class="mr-3" alt="{{toy.prodname}}">
+        <div class="media-desc-content">
+            <div class="media-body">
+                <h5 class="mt-0">{{toy.prodname}}</h5>
+                <p>{{toy.description}}</p>
             </div>
-            <div class="col-md-8">
-            <div class="card-body">
-                <h5 class="card-title">{{toy.prodname}}</h5>
-                <p class="card-text">{{{toy.description}}}</p>
-                {{!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> --}}
+            <div class="star-price-qty">
+                <p>Stars:</p>
+                <p>Price: $<span>{{toy.price}}</span></p>
+                <p>Units:<span>{{toy.units}}</span></p>
             </div>
+            <div class="btn-container btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                <div class="btn-group-lg mr-5" role="group" aria-label="First group">
+                    <button type="button" class="btn btn-light btn-outline-secondary"><span><i class="far fa-star"></i></span>Star</button>
+                </div>
+                <div class="btn-group-lg mr-5" role="group" aria-label="Second group">
+                    <button type="button" class="btn btn-light btn-outline-secondary">Comment</button>
+                </div>
+                <div class="btn-group-lg" role="group" aria-label="Third group">
+                    <button type="button" class="btn btn-light btn-outline-secondary"><span><i class="fas fa-shopping-cart"></i></span>Add to Cart</button>
+                </div>
             </div>
         </div>
     </div>
+    
 </div>
