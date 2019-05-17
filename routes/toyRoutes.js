@@ -30,13 +30,12 @@ app.get('/', atachUserInfo, (req, res) => {
 
 app.get('/toyDetails/:id', atachUserInfo, (req, res) => {
     
-    
     Toy.findById(req.params.id)
     .then(result => {
-        
-        let starred = req.session.currentUser.starred
-        result.toyIsStarred = starred.indexOf(result.id) === -1? false: true;
-        
+        if(req.session.currentUser) {
+            let starred = req.session.currentUser.starred
+            result.toyIsStarred = starred.indexOf(result.id) === -1? false: true;
+        }
         res.render('toydetail', {toy: result});
     })
     .catch(err => {
@@ -74,22 +73,15 @@ app.post('/newToy', atachUserInfo, authenticateSession, (req, res) => {
 
 });
 
-app.get('/myFavs', (req, res) => {
-    res.render('favorites');
-
-    // router.get("/addToFavourite", (req, res) => {
-    //     console.log(req.query);
-    //     const eventId = req.query.eventId;
-    //     const userId = req.session.currentUser._id;
-    //     debugger
-    //     User.findOneAndUpdate({_id: userId }, {$push:{events: eventId}}).then(updatedUser => {
-    //         debugger
-    //         res.redirect("/details/" + eventId);
-    //     }).catch(err => {
-    //         debugger
-    //         throw err;
-    //     })
-    //  });
+app.get('/myFavs', atachUserInfo, authenticateSession, (req, res) => {
+    
+    Toy.find({_id: req.session.currentUser.starred})
+    .then(toys => {
+        res.render('favorites', {toys: toys})
+    })
+    .catch(err => {
+        res.send(err);
+    });
 
 });
 
@@ -130,13 +122,32 @@ app.post('/updateToy', atachUserInfo, authenticateSession, (req, res) => {
 
 });
 
-app.get('/starAToy/:id', atachUserInfo, authenticateSession, (req, res) => { 
+app.get('/starAToy/:id', atachUserInfo, authenticateSession, (req, res) => {
     var toyId = mongoose.Types.ObjectId(req.params.id)
-    User.update({_id: req.session.currentUser._id}, {$push: {starred: toyId}})
+    User.updateOne({_id: req.session.currentUser._id}, {$push: {starred: toyId}})
     .then(() => {
         Toy.findByIdAndUpdate(req.params.id, {$inc: {stars: 1}})
         .then(() => {
-            req.session.currentUser.starred.push(toyId)
+            req.session.currentUser.starred.push(toyId);
+            res.redirect(`/toyDetails/${req.params.id}`);
+        })
+    })
+    .catch(err => {
+        res.status(500).json({message: "not starred"});
+    });
+
+});
+
+app.get('/unStar/:id', atachUserInfo, authenticateSession, (req, res) => {
+    
+    var toyId = mongoose.Types.ObjectId(req.params.id)
+    let indexId = req.session.currentUser.starred.indexOf(req.params.id);
+    
+    User.updateOne({_id: req.session.currentUser._id}, {$pull: {starred: {$in: [toyId]}}})
+    .then(() => {
+        Toy.findByIdAndUpdate(req.params.id, {$inc: {stars: -1}})
+        .then(() => {
+            req.session.currentUser.starred.splice(indexId, 1);
             res.redirect(`/toyDetails/${req.params.id}`);
         })
     })

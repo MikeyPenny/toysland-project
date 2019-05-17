@@ -21,7 +21,9 @@ mongoose.connect('mongodb://localhost/toysland', {useNewUrlParser: true}, (err) 
     else console.log('Error', err);
 });
 
-
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
 
 
 app.use('/', require('./routes/userRoutes'));
