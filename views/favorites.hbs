@@ -1,1 +1,17 @@
-<h1>Favorites works!</h1>
+<div class="content container mt-main">
+    <div class="row">
+        {{#each toys}}
+        
+            <div class="card col-12 col-lg-4" style="width: 18rem;">
+                <img src="{{picture}}" class="card-img-top" alt="{{prodname}}" >
+                <div class="card-body">
+                    <h5 class="card-title">{{prodname}}</h5>
+                    <p class="card-text">{{description}}</p>
+                    <a href="/toyDetails/{{_id}}" class="btn btn-primary">See Details</a>
+                </div>
+            </div>
+        
+        
+        {{/each}}
+    </div>
+</div>
