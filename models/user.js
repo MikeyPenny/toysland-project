@@ -8,6 +8,10 @@ const userSchema = new Schema({
     starred: [{
         type: mongoose.Schema.Types.ObjectId, 
         ref: 'toys'
+    }],
+    shoppingCard: [{
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'toys'
     }]
 });
 

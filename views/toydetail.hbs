@@ -7,14 +7,21 @@
                 <p>{{toy.description}}</p>
             </div>
             <div class="star-price-qty">
-                <p>Stars:</p>
-                <p>Price: $<span>{{toy.price}}</span></p>
-                <p>Units:<span>{{toy.units}}</span></p>
+                <p>Stars: <span id="star" >{{toy.stars}}</span></p>
+                <p>Price: $<span id="price">{{toy.price}}</span></p>
+                <p>Units:<span id="units">{{toy.units}}</span></p>
             </div>
             <div class="btn-container btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                <div class="btn-group-lg mr-5" role="group" aria-label="First group">
-                    <button type="button" class="btn btn-light btn-outline-secondary"><span><i class="far fa-star"></i></span>Star</button>
-                </div>
+                {{#if toy.toyIsStarred}}
+                    <div class="btn-group-lg mr-5" role="group" aria-label="First group">
+                        <a type="button" href="/unStar/{{toy._id}}" class="btn btn-light btn-outline-secondary"><span><i class="far fa-star"></i></span>Remove Star</a>
+                    </div>
+                {{else}}
+                    <div class="btn-group-lg mr-5" role="group" aria-label="First group">
+                        <a type="button" href="/starAToy/{{toy._id}}" class="btn btn-light btn-outline-secondary"><span><i class="far fa-star"></i></span>Star</a>
+                    </div>
+                {{/if}}
+
                 <div class="btn-group-lg mr-5" role="group" aria-label="Second group">
                     <button type="button" class="btn btn-light btn-outline-secondary">Comment</button>
                 </div>
@@ -26,3 +33,13 @@
     </div>
     
 </div>
+{{!-- 
+<script>
+
+    document.getElementById("star").onclick = function() {
+        axios.get("/unstar/{{toy._id}}")
+            .then((response)=> {
+                
+            })
+    }
+</script> --}}
