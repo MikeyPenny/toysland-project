@@ -43,7 +43,7 @@ app.post('/register', (req, res) => {
                     newUser.password = hash;
                     User.create(newUser)
                     .then(user => {
-                        res.send('Ok');
+                        res.redirect('/login');
                     });
                 }
             });

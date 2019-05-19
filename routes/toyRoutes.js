@@ -3,7 +3,6 @@ const app = express();
 const Toy = require('../models/toy');
 const User = require('../models/user');
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 
@@ -35,6 +34,9 @@ app.get('/toyDetails/:id', atachUserInfo, (req, res) => {
         if(req.session.currentUser) {
             let starred = req.session.currentUser.starred
             result.toyIsStarred = starred.indexOf(result.id) === -1? false: true;
+
+            let addedToCart = req.session.currentUser.shoppingCart
+            result.toyIsAdded = addedToCart.indexOf(result.id) === -1? false: true;
         }
         res.render('toydetail', {toy: result});
     })

@@ -16,6 +16,8 @@ app.set('view engine', 'hbs');
 hbs.registerPartials(__dirname + '/views/partials');
 app.use(express.static(__dirname + '/public/'));
 
+
+
 mongoose.connect('mongodb://localhost/toysland', {useNewUrlParser: true}, (err) => {
     if(!err) console.log('connected');
     else console.log('Error', err);

@@ -1,1 +1,30 @@
-<h1>Cart works!</h1>
+
+<div class="container mt-form">
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col-12">Product</th>
+                    <th scope="col-12">Units</th>
+                    <th scope="col-12">Price</th>
+                    <th scope="col-12">Sub Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each toys}}
+                <tr>
+                    <td>{{prodname}}</td>
+                    <td>1</td>
+                    <td>{{price}}</td>
+                    <td>{{price}}</td>
+                </tr>
+                {{/each}}
+                <tr>
+                    <td colspan="3">Total</td>
+                    <td>€<span>{{total}}</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

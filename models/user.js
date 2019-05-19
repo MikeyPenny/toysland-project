@@ -9,7 +9,7 @@ const userSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId, 
         ref: 'toys'
     }],
-    shoppingCard: [{
+    shoppingCart: [{
         type: mongoose.Schema.Types.ObjectId, 
         ref: 'toys'
     }]
