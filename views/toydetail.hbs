@@ -27,9 +27,15 @@
                     <div class="btn-group-lg mr-5" role="group" aria-label="Second group">
                         <button type="button" class="btn btn-light btn-outline-secondary">Comment</button>
                     </div>
+                    {{#if toy.toyIsAdded}}
                     <div class="btn-group-lg" role="group" aria-label="Third group">
-                        <button type="button" class="btn btn-light btn-outline-secondary"><span><i class="fas fa-shopping-cart"></i></span>Add to Cart</button>
+                        <a id="cart-rem" type="button" href="/removeToy/{{toy._id}}" class="btn btn-light btn-outline-secondary"><span><i class="fas fa-shopping-cart"></i></span>Remove from Cart</a>
                     </div>
+                    {{else}}
+                    <div class="btn-group-lg" role="group" aria-label="Third group">
+                        <a id="cart-add" type="button" href="/addToCart/{{toy._id}}" class="btn btn-light btn-outline-secondary"><span><i class="fas fa-shopping-cart"></i></span>Add to Cart</a>
+                    </div>
+                    {{/if}}
                 {{else}}
                     <div class="btn-group-lg mr-5" role="group" aria-label="Second group">
                         <button type="button" class="btn btn-light btn-outline-secondary">Comment</button>
@@ -61,3 +67,5 @@
 
 
 </script> --}}
+
+<script src="../bos/cart.js"></script>
