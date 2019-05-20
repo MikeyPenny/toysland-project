@@ -17,9 +17,9 @@ app.set('view engine', 'hbs');
 hbs.registerPartials(__dirname + '/views/partials');
 app.use(express.static(__dirname + '/public/'));
 
+const MONGODB_URI="mongodb://Mikster:123456Mikey@toys-land-shard-00-00-bpank.mongodb.net:27017,toys-land-shard-00-01-bpank.mongodb.net:27017,toys-land-shard-00-02-bpank.mongodb.net:27017/test?ssl=true&replicaSet=toys-land-shard-0&authSource=admin&retryWrites=true"
 
-
-mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true}, (err) => {
+mongoose.connect(MONGODB_URI, {useNewUrlParser: true}, (err) => {
     if(!err) console.log('connected');
     else console.log('Error', err);
 });
