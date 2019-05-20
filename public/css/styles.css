@@ -20,7 +20,8 @@ body {
 }
 
 .navbar-brand {
-    font-size: 1.2em;
+    font-size: 2.5em;
+    font-family: 'Modak', cursive;
 }
 
 .nav-container {
