@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
@@ -6,7 +7,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
 
-const port = 3000;
+const port = process.env.PORT;
 
 app.use(cookieParser('c is for cookie that´s good enough for me'));
 
@@ -18,7 +19,7 @@ app.use(express.static(__dirname + '/public/'));
 
 
 
-mongoose.connect('mongodb://localhost/toysland', {useNewUrlParser: true}, (err) => {
+mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true}, (err) => {
     if(!err) console.log('connected');
     else console.log('Error', err);
 });

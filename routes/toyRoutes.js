@@ -6,8 +6,15 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 
+const router = express.Router();
+const multer = require('multer');
+
+const Picture = require('../models/picture');
+
+const upload = multer({dest: '/public/images'});
+
 app.use(session({
-    secret: 'cookie starts with c',
+    secret: process.env.Cookie_Secret,
     resave: true,
     saveUninitialized: true,
     cookie: {maxAge: 365 * 24 * 60 * 60 * 1000},

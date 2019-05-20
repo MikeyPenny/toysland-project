@@ -9,7 +9,7 @@ const MongoStore = require('connect-mongo')(session);
 const saltRounds = 10;
 
 app.use(session({
-    secret: 'cookie starts with c',
+    secret: process.env.Cookie_Secret,
     resave: true,
     saveUninitialized: true,
     cookie: {maxAge: 365 * 24 * 60 * 60 * 1000},
