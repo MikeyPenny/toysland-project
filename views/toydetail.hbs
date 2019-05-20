@@ -15,29 +15,29 @@
 
                 {{#if currentUser}}
                     {{#if toy.toyIsStarred}}
-                        <div class="btn-group-lg mr-5" role="group" aria-label="First group">
+                        <div class="btn-group mr-5" role="group" aria-label="First group">
                             <a type="button" id="unstar" href="/unStar/{{toy._id}}" class="btn btn-light btn-outline-secondary"><span><i class="far fa-star"></i></span>Remove Star</a>
                         </div>
                     {{else}}
-                        <div class="btn-group-lg mr-5" role="group" aria-label="First group">
+                        <div class="btn-group mr-5" role="group" aria-label="First group">
                             <a type="button" href="/starAToy/{{toy._id}}" id="star-toy" class="btn btn-light btn-outline-secondary"><span><i class="far fa-star"></i></span>Star</a>
                         </div>
                     {{/if}}
 
-                    <div class="btn-group-lg mr-5" role="group" aria-label="Second group">
+                    <div class="btn-group mr-5" role="group" aria-label="Second group">
                         <button type="button" class="btn btn-light btn-outline-secondary">Comment</button>
                     </div>
                     {{#if toy.toyIsAdded}}
-                    <div class="btn-group-lg" role="group" aria-label="Third group">
+                    <div class="btn-group" role="group" aria-label="Third group">
                         <a id="cart-rem" type="button" href="/removeToy/{{toy._id}}" class="btn btn-light btn-outline-secondary"><span><i class="fas fa-shopping-cart"></i></span>Remove from Cart</a>
                     </div>
                     {{else}}
-                    <div class="btn-group-lg" role="group" aria-label="Third group">
+                    <div class="btn-group" role="group" aria-label="Third group">
                         <a id="cart-add" type="button" href="/addToCart/{{toy._id}}" class="btn btn-light btn-outline-secondary"><span><i class="fas fa-shopping-cart"></i></span>Add to Cart</a>
                     </div>
                     {{/if}}
                 {{else}}
-                    <div class="btn-group-lg mr-5" role="group" aria-label="Second group">
+                    <div class="btn-group mr-5" role="group" aria-label="Second group">
                         <button type="button" class="btn btn-light btn-outline-secondary">Comment</button>
                     </div>
                 {{/if}}

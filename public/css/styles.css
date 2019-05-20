@@ -10,7 +10,7 @@ body {
 
 .navbar {
     width: 95%;
-    height: 10vh;
+    height: 80px;
 }
 
 .navbar-nav {
@@ -20,13 +20,13 @@ body {
 }
 
 .navbar-brand {
-    font-size: 2.5em;
+    font-size: 2em;
     font-family: 'Modak', cursive;
 }
 
 .nav-container {
-    height: 10vh;
-    font-size: 1.5em;
+    height: 80px;
+    font-size: 1em;
     background-color: #007bff;
 }
 
@@ -45,7 +45,7 @@ body {
 }
 
 .mt-form {
-    margin-top: 15vh;
+    margin-top: 10vh;
 }
 
 #btn-save {
@@ -53,7 +53,8 @@ body {
 }
 
 .card img {
-    height: 35vh;
+    width: 90%;
+    height: 50%;    
 }
 
 .media {
@@ -63,15 +64,16 @@ body {
 }
 
 .media img {
-    width: 40%;
+    height: 100%;
+    width: 30%;
 }
 
 .media h5 {
-    font-size: 2.5em;
+    font-size: 2em;
 }
 
 .media p {
-    font-size: 1.5em;
+    font-size: 1em;
     margin-top: 30%;
 }
 
