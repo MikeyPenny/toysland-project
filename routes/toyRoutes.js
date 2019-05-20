@@ -11,7 +11,8 @@ const MongoStore = require('connect-mongo')(session);
 
 // const Picture = require('../models/picture');
 
-// const upload = multer({dest: '/public/images'});
+// const upload = multer({dest: '/public/images'});}
+//hi
 
 app.use(session({
     secret: process.env.Cookie_Secret,
